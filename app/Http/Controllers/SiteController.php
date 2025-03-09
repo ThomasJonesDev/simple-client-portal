@@ -8,9 +8,15 @@ use Illuminate\Support\Facades\Auth;
 
 class SiteController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $sites = Site::where('user_id', Auth::id())->get();
+        $query = Site::where('user_id', Auth::id());
+
+        if ($request->has('search')) {
+            $query->where('name', 'like', '%' . $request->get('search') . '%');
+        }
+
+        $sites = $query->get();
 
         return view('sites.index', compact('sites'));
     }

@@ -1,5 +1,12 @@
 <x-layouts.app>
-    <div class="">
+    <div class="flex justify-self-end py-4 ">
+        <form method="GET" action="/sites">
+            <flux:input.group>
+                <flux:input class="form-control" placeholder="Search..." name="search"/>
+                <flux:button icon="magnifying-glass" type="submit">search</flux:button>
+            </flux:input.group>
+        </form>
+    </div>
         <flux:table>
             <flux:table.columns>
                 <flux:table.column>Site Name</flux:table.column>
@@ -30,7 +37,7 @@
                 @endforeach
             </flux:table.rows>
         </flux:table>
-    </div>
+
     <div>
         <flux:separator />
     </div>
