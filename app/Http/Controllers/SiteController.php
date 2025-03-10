@@ -21,8 +21,11 @@ class SiteController extends Controller
         return view('sites.index', compact('sites'));
     }
 
-    public function create()
+    public function create(Request $request)
     {
+        if ($request->user()->isNot(Auth::user())) {
+            return redirect()->route('sites.index');
+        }
         return view('sites.create');
     }
 
@@ -53,6 +56,10 @@ class SiteController extends Controller
 
     public function edit(Site $site)
     {
+        if ($site->user()->isNot(Auth::user())) {
+            abort(403);
+        }
+
         return view('sites.edit', compact('site'));
     }
 

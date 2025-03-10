@@ -14,8 +14,39 @@ Route::view('dashboard', 'dashboard')
     ->middleware(['auth'])
     ->name('dashboard');
 
-Route::resource('sites', SiteController::class)
-    ->middleware(['auth']);
+Route::controller(SiteController::class)->group(function () {
+    Route::get('sites', 'index')
+        ->middleware('auth')
+        ->name('sites');
+
+    Route::get('sites/create', 'create')
+        ->middleware('auth')
+        ->name('sites.create');
+
+    Route::post('sites', 'store')
+        ->middleware('auth')
+        ->name('sites.store');
+
+    Route::get('sites/{site}', 'show')
+        ->middleware('auth')
+        ->can('access', 'site')
+        ->name('sites.show');
+
+    Route::get('sites/{site}/edit', 'edit')
+        ->middleware('auth')
+        ->can('access', 'site')
+        ->name('sites.edit');
+
+    Route::patch('sites/{site}', 'update')
+        ->middleware('auth')
+        ->can('access', 'site')
+        ->name('sites.update');
+
+    Route::delete('sites/{site}', 'destroy')
+        ->middleware('auth')
+        ->can('access', 'site')
+        ->name('sites.destroy');
+});
 
 Route::resource('invoices', InvoiceController::class)
     ->middleware(['auth'])
