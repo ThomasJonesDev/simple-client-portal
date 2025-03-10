@@ -21,7 +21,10 @@ class SupportTicketController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([]);
+        $request->validate([
+            'subject' => 'required|string|max:255',
+            'message' => 'required|string|max:255',
+        ]);
 
         SupportTicket::create([
             'name' => $request->user()->name,

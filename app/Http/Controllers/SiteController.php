@@ -32,9 +32,9 @@ class SiteController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            "name" => "required|string",
-            "url" => "required|string",
-            "description" => "required|string",
+            'name' => 'required|string|max:255',
+            'url' => 'required|string|max:255',
+            'description' => 'required|string|max:255',
         ]);
 
         $site = new Site([
@@ -66,9 +66,9 @@ class SiteController extends Controller
     public function update(Request $request, Site $site)
     {
         $request->validate([
-            "name" => "required|string",
-            "url" => "required|string",
-            "description" => "required|string",
+            'name' => 'required|string|max:255',
+            'url' => 'required|string|max:255',
+            'description' => 'required|string|max:255',
         ]);
 
         $site->update([
