@@ -8,7 +8,7 @@
 The following commands are for the Bash shell.
 ### Clone GitHub repo
 ```console
-https://github.com/ThomasJonesDev/simple-client-portal.git
+git clone https://github.com/ThomasJonesDev/simple-client-portal.git
 ```
 
 ### cd into the project
