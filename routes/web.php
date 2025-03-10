@@ -48,12 +48,11 @@ Route::controller(SiteController::class)->group(function () {
         ->name('sites.destroy');
 });
 
-Route::resource('invoices', InvoiceController::class)
-    ->middleware(['auth'])
-    ->only(['index']);
-
-Route::resource('support', SupportTicketController::class, )
-    ->middleware(['auth']);
+Route::controller(InvoiceController::class)->group(function () {
+    Route::get('invoices', 'index')
+        ->middleware('auth')
+        ->name('invoices');
+});
 
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
