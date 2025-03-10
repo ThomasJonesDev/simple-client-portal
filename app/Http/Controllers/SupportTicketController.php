@@ -33,6 +33,6 @@ class SupportTicketController extends Controller
             'user_id' => Auth::id(),
         ]);
 
-        return redirect('/support');
+        return redirect()->route('tickets');
     }
 }

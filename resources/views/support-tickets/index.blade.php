@@ -2,7 +2,7 @@
     <h1>Support</h1>
 
     <div class="justify-self-end">
-        <form method="GET" action="/support/create">
+        <form method="GET" action="{{ route('tickets.create') }}">
             <flux:button variant="primary" type="submit">Submit new support ticket</flux:button>
         </form>
     </div>

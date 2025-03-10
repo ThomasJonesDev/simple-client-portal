@@ -1,5 +1,5 @@
 <x-layouts.app>
-    <form method="POST" action="/support">
+    <form method="POST" action="{{ route('tickets.store') }}">
         @csrf
         <flux:fieldset>
             <flux:heading class="py-5">
@@ -22,7 +22,7 @@
 
             <div class="flex justify-end">
                 <div class="px-2">
-                    <flux:button><a href="/support">Cancel</a></flux:button>
+                    <flux:button><a href="{{ route('tickets') }}">Cancel</a></flux:button>
                 </div>
                 <div class="px-2">
                     <flux:button type="submit" variant="primary">Submit</flux:button>

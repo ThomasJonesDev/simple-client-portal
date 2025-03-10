@@ -1,6 +1,6 @@
 <x-layouts.app>
     <div class="flex justify-self-end py-4 ">
-        <form method="GET" action="/sites">
+        <form method="GET" action="{{ route('sites') }}">
             <flux:input.group>
                 <flux:input class="form-control" placeholder="Search..." name="search"/>
                 <flux:button icon="magnifying-glass" type="submit">search</flux:button>
@@ -25,9 +25,13 @@
                         <flux:table.cell >{{ $site->description }}</flux:table.cell>
                         <flux:table.cell>{{ $site->created_at }}</flux:table.cell>
                         <flux:table.cell>{{ $site->updated_at }}</flux:table.cell>
-                        <flux:table.cell><flux:button variant="primary"><a href="/sites/{{ $site->id }}/edit">Edit</a></flux:button></flux:table.cell>
                         <flux:table.cell>
-                            <form method="POST" action="/sites/{{ $site->id }}">
+                            <flux:button variant="primary">
+                                <a href="{{ route('sites.edit', ['site' => $site->id]) }}">Edit</a>
+                            </flux:button>
+                        </flux:table.cell>
+                        <flux:table.cell>
+                            <form method="POST" action="{{ route('sites.destroy', ['site'=> $site->id]) }}">
                                 @csrf
                                 @method('DELETE')
                                 <flux:button type="submit" variant="danger">Delete</flux:button>
@@ -42,6 +46,8 @@
         <flux:separator />
     </div>
     <div class="flex justify-end py-6 px-6">
-        <flux:button><a href="/sites/create">Add</a></flux:button>
+        <flux:button>
+            <a href="{{ route('sites.create' )}}">Add</a>
+        </flux:button>
     </div>
 </x-layouts.app>

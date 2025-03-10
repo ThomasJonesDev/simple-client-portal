@@ -46,13 +46,13 @@ class SiteController extends Controller
 
         $site->save();
 
-        return redirect('/sites');
+        return redirect()->route('sites');
     }
 
-    public function show(Site $site)
-    {
-        return redirect('/sites');
-    }
+//    public function show(Site $site)
+//    {
+//        return redirect()->route('sites');
+//    }
 
     public function edit(Site $site)
     {
@@ -78,12 +78,12 @@ class SiteController extends Controller
             'user_id' => Auth::id(),
         ]);
 
-        return redirect('sites');
+        return redirect()->route('sites');
     }
 
     public function destroy(Site $site)
     {
         $site->delete();
-        return redirect('/sites');
+        return redirect()->route('sites');
     }
 }

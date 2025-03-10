@@ -1,6 +1,6 @@
 <x-layouts.app>
 
-    <form action="/sites/{{ $site->id }}" method="post">
+    <form action="{{ route('sites.update', ['site'=> $site->id]) }}" method="post">
         @csrf
         @method('patch')
 
@@ -29,9 +29,13 @@
 
             </flux:field>
 
-            <div class="">
-                    <flux:button><a href="/sites">Cancel</a></flux:button>
+            <div class="flex justify-end py-4">
+                <div class="px-2">
+                    <flux:button><a href="{{ route('sites') }}">Cancel</a></flux:button>
+                </div>
+                <div class="px-2">
                     <flux:button type="submit" variant="danger">Submit</flux:button>
+                </div>
             </div>
 
         </flux:fieldset>

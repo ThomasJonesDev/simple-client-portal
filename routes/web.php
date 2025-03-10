@@ -27,10 +27,10 @@ Route::controller(SiteController::class)->group(function () {
         ->middleware('auth')
         ->name('sites.store');
 
-    Route::get('sites/{site}', 'show')
-        ->middleware('auth')
-        ->can('access', 'site')
-        ->name('sites.show');
+//    Route::get('sites/{site}', 'show')
+//        ->middleware('auth')
+//        ->can('access', 'site')
+//        ->name('sites.show');
 
     Route::get('sites/{site}/edit', 'edit')
         ->middleware('auth')

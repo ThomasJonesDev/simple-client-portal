@@ -1,6 +1,6 @@
 <x-layouts.app>
 
-    <form action="/sites" method="post">
+    <form action="{{ route('sites.store') }}" method="post">
         @csrf
         <flux:fieldset>
             <!-- Name -->
@@ -29,7 +29,7 @@
 
             <div class="flex justify-end py-4">
                 <div class="px-2">
-                    <flux:button><a href="/sites">Cancel</a></flux:button>
+                    <flux:button><a href="{{ route('sites') }}">Cancel</a></flux:button>
                 </div>
                 <div class="px-2">
                     <flux:button type="submit" variant="danger">Submit</flux:button>

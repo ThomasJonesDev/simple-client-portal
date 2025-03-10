@@ -15,13 +15,13 @@
             <flux:navlist variant="outline">
                 <flux:navlist.group heading="Platform" class="grid">
                     <!-- Dashboard -->
-                    <flux:navlist.item icon="home" href="/dashboard" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
+                    <flux:navlist.item icon="home" href="{{ route('dashboard')  }}" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
                     <!-- List of sites -->
-                    <flux:navlist.item icon="globe-alt" href="/sites" :current="request()->routeIs('sites')" wire:navigate>{{ __('Sites') }}</flux:navlist.item>
+                    <flux:navlist.item icon="globe-alt" href="{{ route('sites') }}" :current="request()->routeIs('sites')" wire:navigate>{{ __('Sites') }}</flux:navlist.item>
                     <!-- Invoices -->
-                    <flux:navlist.item icon="credit-card" href="/invoices" :current="request()->routeIs('invoices')" wire:navigate>{{ __('Invoices') }}</flux:navlist.item>
+                    <flux:navlist.item icon="credit-card" href="{{ route('invoices') }}" :current="request()->routeIs('invoices')" wire:navigate>{{ __('Invoices') }}</flux:navlist.item>
                     <!-- Support Tickets -->
-                    <flux:navlist.item icon="question-mark-circle" href="/support" :current="request()->routeIs('support-tickets')" wire:navigate>{{ __('Support Tickets') }}</flux:navlist.item>
+                    <flux:navlist.item icon="question-mark-circle" href="{{ route('tickets') }}" :current="request()->routeIs('support-tickets')" wire:navigate>{{ __('Support Tickets') }}</flux:navlist.item>
                 </flux:navlist.group>
             </flux:navlist>
 
