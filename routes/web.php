@@ -54,6 +54,20 @@ Route::controller(InvoiceController::class)->group(function () {
         ->name('invoices');
 });
 
+Route::controller(SupportTicketController::class)->group(function () {
+    Route::get('tickets', 'index')
+        ->middleware('auth')
+        ->name('tickets');
+
+    Route::get('tickets/create', 'create')
+        ->middleware('auth')
+        ->name('tickets.create');
+
+    Route::post('tickets', 'store')
+        ->middleware('auth')
+        ->name('tickets.store');
+});
+
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
 
